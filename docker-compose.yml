@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  flask-graphql-api:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./:/app
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+    restart: unless-stopped
+    command: python app.py
